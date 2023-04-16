@@ -1,16 +1,15 @@
 import s from "./Orders.module.css";
 import React from "react";
+import {OrderType} from "../../App";
 import Lottie from "lottie-react";
-import loading from '../src/loader.json';
-import notfound from '../src/notfound.json';
-import {OrderType} from "./Components/Restaurant/Restaurant";
+import loading from '../../loader.json';
+import notfound from '../../notfound.json';
 
 type OrdersPropsType = {
     orders: OrderType[]
     status: 'ready' | 'not_ready'
     isCompleted?: boolean
     isLoading: boolean
-    onClick:(id:number, is_ready:boolean)=>void
 }
 const OrdersStyles = {
     ready: {
@@ -37,9 +36,14 @@ const inProgressButton = {
 }
 
 export const Orders = (props: OrdersPropsType) => {
+    // if (props.isLoading) return <div>Loading...</div>
     const orders = props.orders.length ? <div>
+        {/*<div*/}
+        {/*    style={props.isCompleted ? completedHeader : inProgressHeader}*/}
+        {/*    className={s.header}>{props.isCompleted ? 'Готовы' : 'Готовятся'}</div>*/}
+        {/*<div className={s.wrapper}>*/}
             {props.orders.map((order, index) => {
-                return <button onClick={()=>{props.onClick(order.id,!order.is_ready)}}
+                return <button
                     // style={OrdersStyles[props.status]}
                     style={props.isCompleted ? completedButton : inProgressButton}
                     className={s.item} key={index}>

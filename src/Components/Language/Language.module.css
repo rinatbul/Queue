@@ -1,0 +1,12 @@
+.wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.langButton{
+    background-color: white;
+    color: #298000;
+    border:1px solid #298000;
+}
+
+
